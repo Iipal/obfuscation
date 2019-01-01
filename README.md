@@ -12,3 +12,5 @@ Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 ```bash
 ./obfuscation source.cfg dest.cfg
 ```
+
+###### Note: Second argument file should not exist, it's will created by program.
