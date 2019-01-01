@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 15:55:00 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 17:15:40 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 # define OBF_LINE_LENTH	510
 
+# define COMMENTARY		"///"
+
 # define _MSG(msg) ft_putstr(msg);
 # define _MSGN(msg) ft_putendl(msg);
 # define _NOTIS_MSG(msg, ex) if (!(ex)) { _MSGN(msg); return (false); }
@@ -31,8 +33,6 @@
 # define _NOTIS_FMSG(msg, ex) if (!(ex)) { _MSG(msg); return (false); }
 # define _NOTIS_NMSG(msg, ex) if (!(ex)) { _MSG(msg); return (NULL); }
 # define _NOTIS_N(ex) if (!(ex)) return (NULL)
-
-# define _COMMENTARY_			"///"
 
 # define _ERR_FILE_OPENING_		"Failed opening source file"
 # define _ERR_FILE_READING_		"File reading error."
