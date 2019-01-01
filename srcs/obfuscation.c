@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 15:59:20 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 19:38:38 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int			main(int argc, char const *argv[])
 		exit(EXIT_FAILURE);
 	}
 	_NOTIS_MPE(_ERR_FILE_OPENING_, !(!(fd = open(*argv, O_RDONLY)) || fd < 0));
-	_NOTIS_MSG(_ERR_FILE_READING_, file = obf_file_reader(fd, *argv));
+	_NOTIS_MSG(_ERR_FILE_READING_, file = obf_file_reader(fd, *(argv++)));
 	_NOTIS_MSG(_ERR_FILE_INVALID_, file = obf_file_cut_whitespaces(file));
-	long i = 0;
-	while (i < file->lines)
-		printf("%s\n", file->tab[i++]);
-	_NOTIS_MSG(_ERR_FILE_CONCATE_, file = obf_file_concat(file));
+	_NOTIS_MSG(_ERR_FILE_CONCATE_, obf_file_obfuscate(file, *argv));
 }

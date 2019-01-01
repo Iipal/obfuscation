@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 17:15:40 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 20:41:28 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <ctype.h>
+# include <sys/stat.h>
 
 # define NEG			-1
 # define ZERO			0
@@ -59,7 +60,7 @@ typedef struct	s_file
 
 t_file			*obf_file_reader(int fd, cstring file_name);
 t_file			*obf_file_cut_whitespaces(t_file *file);
-t_file			*obf_file_concat(t_file *file);;
+bool			obf_file_obfuscate(t_file *file, cstring dst_file);
 
 void			obf_file_free(t_file *file);
 

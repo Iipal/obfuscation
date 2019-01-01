@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:50:04 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 16:32:01 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 17:25:28 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		obf_inline_blank_comments(string line)
 	long	i = NEG;
 	string	temp = NULL;
 
-	temp = strstr(line, _COMMENTARY_);
+	temp = strstr(line, COMMENTARY);
 	if (temp)
 		while (temp[++i])
 			temp[i] = ' ';
@@ -25,7 +25,7 @@ static void		obf_inline_blank_comments(string line)
 
 static string	obf_line_cut_whitespaces(string line)
 {
-	string	out;
+	string	out_cuted;
 	long	i = ZERO;
 	long	end = strlen(line);
 	long	start = ZERO;
@@ -46,8 +46,8 @@ static string	obf_line_cut_whitespaces(string line)
 		else
 			temp[i++] = line[start++];
 	free(line);
-	out = strdup(temp);
-	return (out);
+	out_cuted = strdup(temp);
+	return (out_cuted);
 }
 
 static bool 	obf_line_validating(string line)
@@ -56,7 +56,7 @@ static bool 	obf_line_validating(string line)
 	long	len = ZERO;
 	long	i = NEG;
 
-	if (ft_strnstr(line, _COMMENTARY_, strlen(_COMMENTARY_)))
+	if (ft_strnstr(line, COMMENTARY, strlen(COMMENTARY)))
 		return (false);
 	else
 	{

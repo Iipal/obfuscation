@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/30 00:36:52 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/01 16:10:55 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/01 19:41:34 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME = obfuscation
 CC = gcc -march=native
 CFLAGS = -g -Wall -Wextra -Werror
 
-SRC = srcs/obfuscation.c srcs/obf_reader.c srcs/obf_cut_whitespaces.c \
-srcs/obf_concat_file.c srcs/obf_free.c
+SRC = srcs/obfuscation.c srcs/obf_file_reader.c srcs/obf_file_cut_whitespaces.c \
+srcs/obf_file_obfuscate.c srcs/obf_file_free.c
 OBJ = $(SRC:.c=.o)
 
 DEL = rm -rf
