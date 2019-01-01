@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/30 00:36:52 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/01 15:59:03 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/01 16:10:55 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ $(LIBFT):
 $(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "> $(GREEN)Compiled.$(WHITE)"
+
+obf:
+	@$(DEL) $(OBJ)
 
 clean:
 	@$(DEL) $(OBJ)

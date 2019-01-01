@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:50:04 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 15:59:33 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 16:32:01 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ static string	obf_line_cut_whitespaces(string line)
 	long	start = ZERO;
 	char	temp[end + 1];
 
-	bzero(temp, end + 1);
-	while (line[start] && (isblank(line[start]) || line[start] == '\r'))
+	bzero(temp, sizeof(char) * (end + 1));
+	while (line[start] && ft_isblank(line[start]))
 		++start;
-	while (end > 0 && (isblank(line[end]) || line[end] == '\r'))
+	while (end > 0 && ft_isblank(line[end - 1])) 
 		--end;
-	while (line[start])
-		if (isblank(line[start]) || line[start] == '\r')
+	while (start < end)
+		if (ft_isblank(line[start]))
 		{
 			temp[i++] = ' ';
-			while (isblank(line[start]) || line[start] == '\r')
+			while (start < end && ft_isblank(line[start]))
 				++start;
 		}
 		else
@@ -53,15 +53,16 @@ static string	obf_line_cut_whitespaces(string line)
 static bool 	obf_line_validating(string line)
 {
 	long	empty_line = ZERO;
-	long	len = strlen(line);
+	long	len = ZERO;
 	long	i = NEG;
 
 	if (ft_strnstr(line, _COMMENTARY_, strlen(_COMMENTARY_)))
 		return (false);
 	else
 	{
+		len = strlen(line);
 		while (line[++i])
-			if (isblank(line[i]) || line[i] == '\r')
+			if (ft_isblank(line[i]))
 				++empty_line;
 		if (empty_line == len)
 			return (false);
@@ -69,7 +70,7 @@ static bool 	obf_line_validating(string line)
 	return (true);
 }
 
-t_file      	*obf_file_cut_whitespaces(t_file *file)
+t_file			*obf_file_cut_whitespaces(t_file *file)
 {
 	t_file	*out_file;
 	long	valid_lines = ZERO;
