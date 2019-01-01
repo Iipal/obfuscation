@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 20:41:28 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 21:29:26 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define _ERR_FILE_OPENING_		"Failed opening source file"
 # define _ERR_FILE_READING_		"File reading error."
 # define _ERR_FILE_INVALID_		"File validating error."
-# define _ERR_FILE_CONCATE_		"Obfuscate processing error."
+# define _ERR_FILE_OBFUSCT_		"Obfuscate processing error."
 
 # define _ERR_INF_MEM_ALLOC_	"Memory allocating error \\ "
 # define _ERR_INF_FILE_EMPTY_	"Empty file \\ "

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:53:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 21:00:02 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 21:26:26 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ bool		obf_file_obfuscate(t_file *file, cstring dst_file)
 			bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
 			obf_lines_concat(&temp, file->tab[i]);
 		}
+	ft_strdel(&temp);
 	_MSGN(_MSG_END_OK_);
 	return (true);
 }
