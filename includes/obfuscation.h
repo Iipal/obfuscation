@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 03:31:03 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 15:55:00 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,11 @@ typedef struct	s_file
 	strtab	tab;
 	long	lines;
 }				t_file;
+
+t_file			*obf_file_reader(int fd, cstring file_name);
+t_file			*obf_file_cut_whitespaces(t_file *file);
+t_file			*obf_file_concat(t_file *file);;
+
+void			obf_file_free(t_file *file);
 
 #endif
