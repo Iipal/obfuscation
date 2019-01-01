@@ -15,5 +15,5 @@ Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 
 #### Notes:
 - Second argument file should not exist, it's will created by program.
-- Deleting comments if only its looks like [this](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28) & exist in start of line without space at start. If [COMMENTARY](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28) isn't is start of line programm will delete all what exist after commentary.
+- Deleting comments if only its looks like [this](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28) & exist in start of line without space at start. If [COMMENTARY](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28) isn't in start of line programm will delete all what exist after [COMMENTARY](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28).
 - Concate in lines which length less than [this](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L26).
