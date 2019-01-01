@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lft_str.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tmaluh <tmaluh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 09:09:02 by tmaluh            #+#    #+#             */
-/*   Updated: 2018/12/19 20:34:14 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 17:11:20 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,41 +28,40 @@ _USTR;
 _UCHAR;
 _STRTAB;
 
-void	ft_strdel(string *as);
-void	ft_strclr(string s);
-void	ft_striter(string s, void (*f)(string));
-void	ft_striteri(string s, void (*f)(unsigned int, string));
+void	ft_strdel(string*);
+void	ft_strclr(string);
+void	ft_striter(string, void (*f)(string));
+void	ft_striteri(string, void (*f)(unsigned int, string));
 
-int		ft_atoi(string str);
-int		ft_atoi_base(cstring str, int base);
-int		ft_strcmp(cstring s1, cstring s2);
-int		ft_strncmp(cstring s1, cstring s2, size_t n);
-int		ft_strequ(char const *s1, char const *s2);
-int		ft_strnequ(char const *s1, char const *s2, size_t n);
-int		ft_count_if(char const *str, char const ch);
+int		ft_atoi(string);
+int		ft_atoi_base(cstring, int);
+int		ft_strcmp(cstring, cstring);
+int		ft_strncmp(cstring, cstring, size_t);
+int		ft_strequ(char const*, char const*);
+int		ft_strnequ(char const*, char const*, size_t);
+int		ft_count_if(char const*, char const);
 
-size_t	ft_strlen(cstring str);
-size_t	ft_strlcat(string dest, cstring src,
-						size_t dstsize);
-size_t	ft_strlcpy(string dest, cstring str, size_t dstsize);
+size_t	ft_strlen(cstring);
+size_t	ft_strlcat(string, cstring, size_t);
+size_t	ft_strlcpy(string, cstring, size_t);
 
-string	ft_itoa(int n);
-string	ft_strdup(cstring src);
-string	ft_strndup(cstring s1, size_t n);
-string	ft_strcpy(string dest, cstring str);
-string	ft_strncpy(string dest, cstring src, size_t len);
-string	ft_strcat(string dest, cstring src);
-string	ft_strncat(string dest, cstring src, size_t n);
-string	ft_strchr(cstring s, int c);
-string	ft_strrchr(cstring s, int c);
-string	ft_strstr(cstring str, cstring to_find);
-string	ft_strnstr(cstring str, cstring to_find, size_t len);
-string	ft_strnew(size_t size);
-string	ft_strmap(char const *s, char (*f)(char));
-string	ft_strmapi(char const *s, char (*f)(unsigned int, char));
-string	ft_strsub(char const *s, unsigned int start, size_t len);
-string	ft_strjoin(char const *s1, char const *s2);
-string	ft_strtrim(char const *s);
-strtab	ft_strsplit(char const *s, char c);
+string	ft_itoa(int);
+string	ft_strdup(cstring);
+string	ft_strndup(cstring, size_t);
+string	ft_strcpy(string, cstring);
+string	ft_strncpy(string, cstring, size_t);
+string	ft_strcat(string, cstring);
+string	ft_strncat(string, cstring, size_t);
+string	ft_strchr(cstring, int);
+string	ft_strrchr(cstring, int);
+string	ft_strstr(cstring, cstring);
+string	ft_strnstr(cstring, cstring, size_t);
+string	ft_strnew(size_t);
+string	ft_strmap(char const*, char (*f)(char));
+string	ft_strmapi(char const*, char (*f)(unsigned int, char));
+string	ft_strsub(char const*, unsigned int, size_t);
+string	ft_strjoin(char const*, char const *);
+string	ft_strtrim(char const*);
+strtab	ft_strsplit(char const*, char);
 
 #endif

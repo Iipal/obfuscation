@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 10:04:13 by tmaluh            #+#    #+#             */
-/*   Updated: 2018/12/28 15:18:43 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/01 17:11:34 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 
 # define BUFF_SIZE 2048
 
-int	ft_gnl(const int fd, char **line);
+int	ft_gnl(const int, string *);
 
 #endif
