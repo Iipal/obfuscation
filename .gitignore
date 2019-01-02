@@ -1,0 +1,6 @@
+#ignore object files in source folders
+srcs/*.o
+libft/srcs/*/*.o
+libft/libft.a
+#ignore program inputs file
+*.cfg
