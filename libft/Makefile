@@ -12,6 +12,13 @@
 
 NAME = libft.a
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	DEL = rm -rf
+else
+	DEL = del
+endif
+
 CC = gcc -march=native
 LC = ar rc
 
@@ -21,8 +28,6 @@ WHITE=\033[0m
 GREEN=\033[32m
 RED=\033[31m
 
-DEL = rm -rf
-# 69
 LIBSRC_CTYPE = srcs/ctype/ft_isalnum.c srcs/ctype/ft_isalpha.c srcs/ctype/ft_isascii.c \
 		srcs/ctype/ft_isblank.c srcs/ctype/ft_isdigit.c srcs/ctype/ft_islower.c \
 		srcs/ctype/ft_isprint.c srcs/ctype/ft_isupper.c srcs/ctype/ft_toupper.c \

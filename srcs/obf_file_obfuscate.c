@@ -28,7 +28,7 @@ bool		obf_file_obfuscate(t_file *file, cstring dst_file)
 	_MSG(_MSG_START_CONCAT_);
 	_NOTIS_FMSG(_ERR_INF_MEM_ALLOC_, temp = (string)malloc(sizeof(char) * (OBF_LINE_LENTH + 1)));
 	_NOTIS_FMSG(_ERR_INF_FILE_REOPEN_, !(!(fd = open(dst_file, O_RDWR | O_CREAT, 0644)) || fd < 0));
-	bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
+	ft_bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
 	while (++i < file->lines)
 		if (strlen(temp) + strlen(file->tab[i]) < OBF_LINE_LENTH)
 			obf_lines_concat(&temp, file->tab[i]);
@@ -36,7 +36,7 @@ bool		obf_file_obfuscate(t_file *file, cstring dst_file)
 		{
 			write(fd, temp, sizeof(char) * strlen(temp));
 			write(fd, "\n", sizeof(char));
-			bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
+			ft_bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
 			obf_lines_concat(&temp, file->tab[i]);
 		}
 	ft_strdel(&temp);

@@ -16,6 +16,10 @@
 # include <string.h>
 # include <stdlib.h>
 
+# ifdef _WIN64
+#  include <stddef.h>
+# endif
+
 # define _STR		typedef char*			string
 # define _CSTR		typedef const char*		cstring
 # define _USTR		typedef unsigned char*	ustring

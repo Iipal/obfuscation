@@ -31,7 +31,7 @@ static string	obf_line_cut_whitespaces(string line)
 	long	start = ZERO;
 	char	temp[end + 1];
 
-	bzero(temp, sizeof(char) * (end + 1));
+	ft_bzero(temp, sizeof(char) * (end + 1));
 	while (line[start] && ft_isblank(line[start]))
 		++start;
 	while (end > 0 && ft_isblank(line[end - 1])) 

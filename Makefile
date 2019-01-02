@@ -12,6 +12,15 @@
 
 NAME = obfuscation
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	LMAKE = make -C libft
+	DEL = rm -rf
+else
+	LMAKE = mingw32-make -C libft
+	DEL = del
+endif
+
 CC = gcc -march=native
 CFLAGS = -g -Wall -Wextra -Werror
 
@@ -19,10 +28,8 @@ SRC = srcs/obfuscation.c srcs/obf_file_reader.c srcs/obf_file_cut_whitespaces.c 
 srcs/obf_file_obfuscate.c srcs/obf_file_free.c
 OBJ = $(SRC:.c=.o)
 
-DEL = rm -rf
 
 LIBFT = libft/libft.a
-LMAKE = make -C libft
 
 WHITE=\033[0m
 GREEN=\033[32m

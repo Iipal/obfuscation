@@ -15,6 +15,10 @@
 
 # include <unistd.h>
 
+# ifdef _WIN32
+#  include <stddef.h>
+# endif
+
 void	ft_putchar(char);
 void	ft_putstr(char const*);
 void	ft_putendl(char const*);
