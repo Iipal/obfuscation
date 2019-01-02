@@ -39,7 +39,10 @@ bool		obf_file_obfuscate(t_file *file, cstring dst_file)
 			ft_bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
 			obf_lines_concat(&temp, file->tab[i]);
 		}
+	if (*temp)
+		write(fd, temp, sizeof(char) * strlen(temp));
 	ft_strdel(&temp);
+	close(fd);
 	_MSGN(_MSG_END_OK_);
 	return (true);
 }
