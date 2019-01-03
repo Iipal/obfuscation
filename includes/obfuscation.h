@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 21:29:26 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/03 21:46:43 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 # include <ctype.h>
 # include <sys/stat.h>
 
-# define NEG			-1
-# define ZERO			0
+# define NEG				-1
+# define ZERO				0
 
-# define OBF_LINE_LENTH	510
+# define OBF_LINE_LENGTH	510
 
-# define COMMENTARY		"///"
+# define COMMENTARY			"///"
 
 # define _MSG(msg) ft_putstr(msg);
 # define _MSGN(msg) ft_putendl(msg);

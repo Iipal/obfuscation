@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:53:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/01 21:26:26 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/03 21:46:58 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ bool		obf_file_obfuscate(t_file *file, cstring dst_file)
 	int		fd;
 
 	_MSG(_MSG_START_CONCAT_);
-	_NOTIS_FMSG(_ERR_INF_MEM_ALLOC_, temp = (string)malloc(sizeof(char) * (OBF_LINE_LENTH + 1)));
+	_NOTIS_FMSG(_ERR_INF_MEM_ALLOC_, temp = (string)malloc(sizeof(char) * (OBF_LINE_LENGTH + 1)));
 	_NOTIS_FMSG(_ERR_INF_FILE_REOPEN_, !(!(fd = open(dst_file, O_RDWR | O_CREAT, 0644)) || fd < 0));
-	ft_bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
+	ft_bzero(temp, sizeof(char) * (OBF_LINE_LENGTH + 1));
 	while (++i < file->lines)
-		if (strlen(temp) + strlen(file->tab[i]) < OBF_LINE_LENTH)
+		if (strlen(temp) + strlen(file->tab[i]) < OBF_LINE_LENGTH)
 			obf_lines_concat(&temp, file->tab[i]);
 		else
 		{
 			write(fd, temp, sizeof(char) * strlen(temp));
 			write(fd, "\n", sizeof(char));
-			ft_bzero(temp, sizeof(char) * (OBF_LINE_LENTH + 1));
+			ft_bzero(temp, sizeof(char) * (OBF_LINE_LENGTH + 1));
 			obf_lines_concat(&temp, file->tab[i]);
 		}
 	if (*temp)
