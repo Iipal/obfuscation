@@ -4,8 +4,8 @@
 
 Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 - **make**: Compile all.
-- **make clean**: Delete temporal files.
-- **make fclean**: Delete executable FdF file & libft library.
+- **make clean**: Delete temporary files.
+- **make fclean**: Delete executable `./obf` file & `libft.a` library.
 - **make re**: It's rules - **make fclean** & **make** in one.
 
 ## Usage:
