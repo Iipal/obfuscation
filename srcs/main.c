@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 15:25:31 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 19:21:07 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	obf_print_usage(void)
 
 int			main(int argc, char *argv[])
 {
-	const fptr_flags	flag[] = {&obf_flag_doall, &obf_flag_wss_concat, &obf_flag_wss_ccrot, &obf_flag_wss};
+	const fptr_flags	flag[] = {&obf_flag_doall, &obf_flag_wss_concat,
+					&obf_flag_wss_ccrot, &obf_flag_wss, &obf_flag_ccrot};
 	t_file				*file;
 	int					fd;
 	int					i = NEG;

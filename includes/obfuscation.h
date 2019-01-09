@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 15:07:29 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 19:21:48 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,19 @@
 # define OBF_ARGS_FLAG		0
 
 /*
-**	'-all':	delete whitepsaces, obfuscate & rename
+**	'-all':	delete whitepsaces, obfuscate & rename.
 **	'-wc':	delete whitespaces and concatenate all lines without rename.
 **	'-wr':	delete whitespaces and rename without concatenate all lines.
 **	'-wo':	delete whitespaces without rename and without concatenate all lines.
+**	'-ro':	only renaming vars.
 */
 
-# define FLAGS_QTY			4
+# define FLAGS_QTY			5
 # define FLAGS_ALL			"-all"
 # define FLAGS_WC			"-wc"
 # define FLAGS_WR			"-wr"
 # define FLAGS_WO			"-wo"
+# define FLAGS_RO			"-ro"
 
 # define OBF_LINE_LENGTH	510
 # define COMMENTARY			"///"
@@ -84,6 +86,7 @@ bool			obf_flag_doall(t_file **file);
 bool			obf_flag_wss_concat(t_file **file);
 bool			obf_flag_wss_ccrot(t_file **file);
 bool			obf_flag_wss(t_file **file);
+bool			obf_flag_ccrot(t_file **file);
 
 
 bool			obf_file_save(t_file *file, string src_file_name);

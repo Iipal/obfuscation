@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:38:07 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 14:10:21 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 19:21:43 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		obf_flags_parsing(string flag)
 {
-	cstring	flags[] = {FLAGS_ALL, FLAGS_WC, FLAGS_WR, FLAGS_WO};
+	cstring	flags[] = {FLAGS_ALL, FLAGS_WC, FLAGS_WR, FLAGS_WO, FLAGS_RO};
 	int		i = NEG;
 
 	_MSG(_MSG_START_FPARSE_);
