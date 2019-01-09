@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/03 21:46:43 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 14:11:47 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define OBFUSCATION_H
 
 # include "../libft/includes/libft.h"
+# include "info_messages.h"
 # include <strings.h>
 # include <fcntl.h>
 # include <stdio.h>
@@ -23,9 +24,25 @@
 # define NEG				-1
 # define ZERO				0
 
-# define OBF_LINE_LENGTH	510
+# define OBF_ARGS_MIN		2
+# define OBF_ARGS_FLAG		0
 
+/*
+**	'-all':	delete whitepsaces, obfuscate & rename
+**	'-wc':	delete whitespaces and concatenate all lines without rename.
+**	'-wr':	delete whitespaces and rename without concatenate all lines.
+**	'-wo':	delete whitespaces without rename and without concatenate all lines.
+*/
+
+# define FLAGS_QTY			4
+# define FLAGS_ALL			"-all"
+# define FLAGS_WC			"-wc"
+# define FLAGS_WR			"-wr"
+# define FLAGS_WO			"-wo"
+
+# define OBF_LINE_LENGTH	510
 # define COMMENTARY			"///"
+# define CC_ROT				13
 
 # define _MSG(msg) ft_putstr(msg);
 # define _MSGN(msg) ft_putendl(msg);
@@ -34,33 +51,26 @@
 # define _NOTIS_FMSG(msg, ex) if (!(ex)) { _MSG(msg); return (false); }
 # define _NOTIS_NMSG(msg, ex) if (!(ex)) { _MSG(msg); return (NULL); }
 # define _NOTIS_N(ex) if (!(ex)) return (NULL)
+# define _NOTIS_F(ex) if (!(ex)) return (false)
 
-# define _ERR_FILE_OPENING_		"Failed opening source file"
-# define _ERR_FILE_READING_		"File reading error."
-# define _ERR_FILE_INVALID_		"File validating error."
-# define _ERR_FILE_OBFUSCT_		"Obfuscate processing error."
+# define _RSIZEOF(len) sizeof(char) * (len)
 
-# define _ERR_INF_MEM_ALLOC_	"Memory allocating error \\ "
-# define _ERR_INF_FILE_EMPTY_	"Empty file \\ "
-# define _ERR_INF_FILE_REOPEN_	"Failed file re-opening \\ "
-# define _ERR_INF_FILE_O_COMM_	"Only comments in file \\ "
-
-# define _MSG_START_READ_		"Source file reading: "
-# define _MSG_START_VALID_		"File validating: "
-# define _MSG_START_CONCAT_		"Obfuscating: "
-# define _MSG_END_OK_			"OK."
+# define _FILE_SAVE_PREF_	"obf_"
+# define _FILE_SAVE_NAME(src_file) src_file = strcat(strdup(_FILE_SAVE_PREF_), src_file)
 
 typedef enum	e_bool { false, true }	bool;
-
 typedef struct	s_file
 {
 	strtab	tab;
-	long	lines;
+	int		lines;
 }				t_file;
 
-t_file			*obf_file_reader(int fd, cstring file_name);
+int				obf_flags_parsing(string flag);
+
+t_file			*obf_file_reader(int *fd, cstring file_name);
 t_file			*obf_file_cut_whitespaces(t_file *file);
-bool			obf_file_obfuscate(t_file *file, cstring dst_file);
+t_file			*obf_file_concat(t_file *file);
+bool			obf_file_save(t_file *file, string file_name);
 
 void			obf_file_free(t_file *file);
 
