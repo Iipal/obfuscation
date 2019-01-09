@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 20:10:35 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 21:49:30 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@
 # define _RSIZEOF(len) sizeof(char) * (len)
 
 # define _FILE_SAVE_PREF_	"obf_"
-# define _FILE_SAVE_NAME(src_file) src_file = strcat(strdup(_FILE_SAVE_PREF_), src_file)
 
 typedef enum	e_bool { false, true }	bool;
 typedef struct	s_file
