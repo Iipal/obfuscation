@@ -4,3 +4,4 @@ libft/srcs/*/*.o
 libft/libft.a
 #ignore program inputs file
 *.cfg
+obf
