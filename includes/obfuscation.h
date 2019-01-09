@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 20:02:59 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 20:10:35 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@
 # define FLAGS_QTY			3
 
 # define FLAGS_SPACES		'w'
-# define FLAGS_CONCAT		'o'
 # define FLAGS_RENAME		'r'
+# define FLAGS_CONCAT		'o'
 
 # define OBF_LINE_LENGTH	510
-# define COMMENTARY			"///"
+# define COMMENTARY			"//"
 # define CC_ROT				13
 
 # define VPREF_QTY			5
