@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 19:21:07 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 20:02:14 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ static void	obf_print_usage(void)
 
 int			main(int argc, char *argv[])
 {
-	const fptr_flags	flag[] = {&obf_flag_doall, &obf_flag_wss_concat,
-					&obf_flag_wss_ccrot, &obf_flag_wss, &obf_flag_ccrot};
+	const fptr_flags	flags_funcs[] = {&obf_flag_concat, &obf_flag_ccrot, &obf_flag_wss};
+	char				flags[] = {FLAGS_CONCAT, FLAGS_RENAME, FLAGS_SPACES};
 	t_file				*file;
 	int					fd;
 	int					i = NEG;
-	int					fselector;
+	int					j = NEG;
+	bool				valid_flag;
 
 	--argc;
 	++argv;
@@ -38,14 +39,21 @@ int			main(int argc, char *argv[])
 		obf_print_usage();
 		exit(EXIT_FAILURE);
 	}
-	_NOTIS_MSG(_ERRNO_FLAG_PARSING_, fselector = obf_flags_parsing(argv[OBF_ARGS_FLAG]));
-	--fselector;
+	if (**argv == '-')
+		++(*argv);
 	while (++i < argc - 1)
 	{
 		write(1, "\t", _RSIZEOF(1)); _MSG(argv[i + 1]); write(1, ":\n", _RSIZEOF(2));
 		_NOTIS_MPE(_ERRNO_FILE_OPENING_, !(!(fd = open(argv[i + 1], O_RDONLY)) || fd < 0));
 		_NOTIS_MSG(_ERRNO_FILE_READING_, file = obf_file_reader(&fd, argv[i + 1]));
-		_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flag[fselector](&file));
+		while (**argv && (j = NEG))
+		{
+			while (++j < FLAGS_QTY)
+				if (**argv == flags[j] && (valid_flag = true))
+					_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flags_funcs[j](&file));
+			(!valid_flag) ? printf("%c invalid option.\n", **argv) : (valid_flag = !valid_flag);
+			++(*argv);
+		}
 		_NOTIS_MSG(_ERRNO_FILE_OSAVING_, obf_file_save(file, argv[i + 1]));
 		obf_file_free(file);
 	}

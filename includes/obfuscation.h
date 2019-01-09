@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 19:21:48 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 20:02:59 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,16 @@
 # define OBF_ARGS_FLAG		0
 
 /*
-**	'-all':	delete whitepsaces, obfuscate & rename.
-**	'-wc':	delete whitespaces and concatenate all lines without rename.
-**	'-wr':	delete whitespaces and rename without concatenate all lines.
-**	'-wo':	delete whitespaces without rename and without concatenate all lines.
-**	'-ro':	only renaming vars.
+**	'o':	option for obfuscate.
+**	'w':	option for delete whitespaces.
+**	'r':	option for rename variables.
 */
 
-# define FLAGS_QTY			5
-# define FLAGS_ALL			"-all"
-# define FLAGS_WC			"-wc"
-# define FLAGS_WR			"-wr"
-# define FLAGS_WO			"-wo"
-# define FLAGS_RO			"-ro"
+# define FLAGS_QTY			3
+
+# define FLAGS_SPACES		'w'
+# define FLAGS_CONCAT		'o'
+# define FLAGS_RENAME		'r'
 
 # define OBF_LINE_LENGTH	510
 # define COMMENTARY			"///"
@@ -52,6 +49,7 @@
 # define VPREF_OWLECHO		"OWLECHO_"
 # define VPREF_PLUSOWL		"+OWL_"
 # define VPREF_MINUSOWL		"-OWL_"
+
 
 # define _MSG(msg) ft_putstr(msg);
 # define _MSGN(msg) ft_putendl(msg);
@@ -75,19 +73,14 @@ typedef struct	s_file
 }				t_file;
 typedef bool (*fptr_flags)(t_file**);
 
-int				obf_flags_parsing(string flag);
-
 t_file			*obf_file_reader(int *fd, cstring file_name);
 t_file			*obf_file_cut_whitespaces(t_file *file);
 t_file			*obf_file_concat(t_file *file);
 bool			obf_file_ccrot(t_file *file);
 
-bool			obf_flag_doall(t_file **file);
-bool			obf_flag_wss_concat(t_file **file);
-bool			obf_flag_wss_ccrot(t_file **file);
 bool			obf_flag_wss(t_file **file);
 bool			obf_flag_ccrot(t_file **file);
-
+bool			obf_flag_concat(t_file **file);
 
 bool			obf_file_save(t_file *file, string src_file_name);
 void			obf_file_free(t_file *file);
