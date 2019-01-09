@@ -3,5 +3,6 @@ srcs/*.o
 libft/srcs/*/*.o
 libft/libft.a
 #ignore program inputs file
+.vscode
 *.cfg
 obf
