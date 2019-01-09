@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/30 00:36:52 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/09 19:52:30 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/10 00:48:13 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ endif
 CC = gcc -march=native
 CFLAGS = -g -Wall -Wextra -Werror
 
-SRC = srcs/main.c srcs/obf_file_reader.c srcs/obf_file_cut_whitespaces.c \
+SRC = srcs/main.c srcs/obf_file_reader.c srcs/obf_file_cut_wss.c \
 srcs/obf_file_concat.c srcs/obf_file_free.c srcs/obf_file_save.c \
-srcs/obf_flags_todo.c srcs/obf_file_ccrot.c
+srcs/obf_flags_todo.c srcs/obf_file_ccrot.c srcs/obf_file_fake.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT = libft/libft.a

@@ -1,8 +1,6 @@
 srcs/*.o
 libft/srcs/*/*.o
 libft/libft.a
-.vscode/*.json
-.vscode/
 *.cfg
 obf
 .*

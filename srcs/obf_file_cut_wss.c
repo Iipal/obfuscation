@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   obf_file_cut_whitespaces.c                         :+:      :+:    :+:   */
+/*   obf_file_cut_wss.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:50:04 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 20:08:48 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 00:49:32 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_file			*obf_file_cut_whitespaces(t_file *file)
 	int		i = NEG;
 	int		j = ZERO;
 
-	_MSG(_MSG_START_VALID_);
+	_MSG(_MSG_START_CUTWSS_);
 	while (++i < file->lines)
  		if (obf_line_validating(file->tab[i]))
 			++valid_lines;

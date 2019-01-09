@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 20:28:19 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 00:52:26 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ static void	obf_print_usage(void)
 
 int			main(int argc, char *argv[])
 {
-	const fptr_flags	flags_funcs[] = {&obf_flag_concat, &obf_flag_ccrot, &obf_flag_wss};
-	char				flags[] = {FLAGS_CONCAT, FLAGS_RENAME, FLAGS_SPACES};
 	t_file				*file;
-	int					fd;
+	const fptr_flags	flags_funcs[] = {&obf_flag_concat, &obf_flag_ccrot, &obf_flag_wss, &obf_flag_fake};
+	char				flags[] = {FLAGS_CONCAT, FLAGS_RENAME, FLAGS_SPACES, FLAGS_FAKING};
+	string				src_flags;
+	bool				valid_flag;
 	int					i = NEG;
 	int					j = NEG;
-	bool				valid_flag;
+	int					fd;
 
 	--argc;
 	++argv;
@@ -39,6 +40,7 @@ int			main(int argc, char *argv[])
 		obf_print_usage();
 		exit(EXIT_FAILURE);
 	}
+	src_flags = *argv;
 	if (**argv == '-')
 		++(*argv);
 	while (++i < argc - 1)
@@ -50,7 +52,11 @@ int			main(int argc, char *argv[])
 		{
 			while (++j < FLAGS_QTY)
 				if (**argv == flags[j] && (valid_flag = true))
+				{
+					if (**argv == FLAGS_FAKING)
+						_NOTIS_MSG(_ERRNO_FLAG_FAKING_, ft_strnstr(src_flags, "w", (*argv - src_flags)) && ft_strnstr(src_flags, "o", (*argv - src_flags)));
 					_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flags_funcs[j](&file));
+				}
 			(!valid_flag) ? (bool)printf("%c invalid option.\n", **argv) : (valid_flag = !valid_flag);
 			++(*argv);
 		}

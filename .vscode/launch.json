@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/obf",
-            "args": ["-w", "test.cfg"],
+            "args": ["-fow", "test1.cfg"],
             "cwd": "${workspaceFolder}",
             "MIMode": "lldb",
             "setupCommands": [
