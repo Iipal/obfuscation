@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:53:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 14:28:48 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 15:43:35 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ static void	obf_lines_concat(string *dest, string src)
 		if ((*dest)[strlen(*dest) - 1] != ';')
 			*dest = strcat(*dest, ";");
 }
+
+/*
+**	obf_concated_lines used for search how much memory need to allocate new t_file*
+*/
 
 static int	obf_concated_lines(t_file *file)
 {
