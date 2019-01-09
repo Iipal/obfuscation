@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   obf_flags_parsing.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/24 11:21:20 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 11:29:32 by tmaluh           ###   ########.fr       */
+/*   Created: 2019/01/09 12:38:07 by tmaluh            #+#    #+#             */
+/*   Updated: 2019/01/09 14:10:21 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lft_mem.h"
+#include "../includes/obfuscation.h"
 
-void	ft_bzero(pvoid s, size_t n)
+int		obf_flags_parsing(string flag)
 {
-	ft_memset(s, '\0', n);
+	cstring	flags[] = {FLAGS_ALL, FLAGS_WC, FLAGS_WR, FLAGS_WO};
+	int		i = NEG;
+
+	_MSG(_MSG_START_FPARSE_);
+	while (++i < FLAGS_QTY)
+		if (!ft_strncasecmp(flag, flags[i], _RSIZEOF(strlen(flags[i]))))
+		{
+			_MSGN(_MSG_OK_);
+			return (++i);
+		}
+	_MSG(flag);
+	_MSG(_ERR_INF_FLAG_ISNTEX_);
+	return (false);
 }
