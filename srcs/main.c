@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 15:03:59 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 15:10:42 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			main(int argc, char *argv[])
 		_NOTIS_MPE(_ERRNO_FILE_OPENING_, !(!(fd = open(argv[i + 1], O_RDONLY)) || fd < 0));
 		_NOTIS_MSG(_ERRNO_FILE_READING_, file = obf_file_reader(&fd, argv[i + 1]));
 		_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flag[fselector](&file));
-		_NOTIS_MSG(_ERRNO_FILE_OSAVING_, obf_file_save(file, _FILE_SAVE_NAME(argv[i + 1])));
+		_NOTIS_MSG(_ERRNO_FILE_OSAVING_, obf_file_save(file, argv[i + 1]));
 		obf_file_free(file);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 14:38:55 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 15:07:29 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ bool			obf_flag_wss_ccrot(t_file **file);
 bool			obf_flag_wss(t_file **file);
 
 
-bool			obf_file_save(t_file *file, string file_name);
+bool			obf_file_save(t_file *file, string src_file_name);
 void			obf_file_free(t_file *file);
 
 #endif

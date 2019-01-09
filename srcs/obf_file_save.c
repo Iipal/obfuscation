@@ -6,17 +6,20 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 10:55:17 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 14:11:01 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 15:08:10 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/obfuscation.h"
 
-bool	obf_file_save(t_file *file, string file_name)
+bool	obf_file_save(t_file *file, string src_file_name)
 {
 	int		i = NEG;
 	int		fd;
+	string	file_name;
 
+	file_name = strdup(_FILE_SAVE_PREF_);
+	file_name = strcat(file_name, src_file_name);
 	_MSG("Saving to file \'");
 	_MSG(file_name);
 	write(1, "\': ", _RSIZEOF(3));
