@@ -13,13 +13,13 @@
 NAME = libft.a
 
 UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	DEL = rm -rf
-endif
 ifeq ($(UNAME_S),Darwin)
 	DEL = rm -rf
 else
 	DEL = del
+endif
+ifeq ($(UNAME_S),Linux)
+	DEL = rm -rf
 endif
 
 CC = gcc -march=native
