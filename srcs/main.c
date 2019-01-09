@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 14:45:11 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 15:03:59 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,4 @@ int			main(int argc, char *argv[])
 		_NOTIS_MSG(_ERRNO_FILE_OSAVING_, obf_file_save(file, _FILE_SAVE_NAME(argv[i + 1])));
 		obf_file_free(file);
 	}
-	system("leaks obf");
 }
