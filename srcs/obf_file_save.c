@@ -18,19 +18,17 @@ bool	obf_file_save(t_file *file, string src_file_name)
 	int		fd;
 	string	file_name;
 
-	file_name = strdup(_FILE_SAVE_PREF_);
-	file_name = strcat(file_name, src_file_name);
-	_MSG("Saving to file \'");
-	_MSG(file_name);
-	write(1, "\': ", _RSIZEOF(3));
+	file_name = ft_strdup(_FILE_SAVE_PREF_);
+	file_name = ft_strcat(file_name, src_file_name);
+	_MSG("Saving to file \'"); _MSG(file_name); write(1, "\': ", _RSIZEOF(3));
 	_NOTIS_FMSG(_ERR_INF_FILE_REOPEN_, !(!(fd = open(file_name, O_RDWR | O_CREAT, 0644)) || fd < 0));
 	while (++i < file->lines)
 	{
 		write(fd, file->tab[i], _RSIZEOF(strlen(file->tab[i])));
 		write(fd, "\n", sizeof(char));
 	}
-	ft_strdel(&file_name);
 	close(fd);
+	ft_strdel(&file_name);
 	_MSGN(_MSG_OK_);
 	return (true);
 }
