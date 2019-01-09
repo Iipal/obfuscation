@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:53:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 12:22:02 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 14:28:48 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_file		*obf_file_concat(t_file *file)
 	int		i = NEG;
 	int		j = NEG;
 
-	_MSG(_MSG_START_CONCAT_);
+	_MSG(_MSG_START_OBFUSCATE_);
 	_NOTIS_NMSG(_ERR_INF_MEM_ALLOC_, concated_file = (t_file*)malloc(sizeof(t_file)));
 	_NOTIS_NMSG(_ERR_INF_MEM_ALLOC_, concated_file->lines = obf_concated_lines(file));
 	_NOTIS_NMSG(_ERR_INF_MEM_ALLOC_, concated_file->tab = (strtab)malloc(sizeof(string) * concated_file->lines));

@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/30 00:36:52 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/09 14:01:13 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/09 14:41:10 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ CC = gcc -march=native
 CFLAGS = -g -Wall -Wextra -Werror
 
 SRC = srcs/main.c srcs/obf_file_reader.c srcs/obf_file_cut_whitespaces.c \
-srcs/obf_file_concat.c srcs/obf_file_free.c srcs/obf_file_save.c srcs/obf_flags_parsing.c
+srcs/obf_file_concat.c srcs/obf_file_free.c srcs/obf_file_save.c \
+srcs/obf_flags_parsing.c srcs/obf_flags_todo.c srcs/obf_file_ccrot.c
 OBJ = $(SRC:.c=.o)
 
 

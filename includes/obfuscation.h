@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/09 14:11:47 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/09 14:38:55 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@
 # define COMMENTARY			"///"
 # define CC_ROT				13
 
+# define VPREF_QTY			5
+# define VPREF_OWL			"OWL_"
+# define VPREF_OWLPLAY		"OWLPLAY_"
+# define VPREF_OWLECHO		"OWLECHO_"
+# define VPREF_PLUSOWL		"+OWL_"
+# define VPREF_MINUSOWL		"-OWL_"
+
 # define _MSG(msg) ft_putstr(msg);
 # define _MSGN(msg) ft_putendl(msg);
 # define _NOTIS_MSG(msg, ex) if (!(ex)) { _MSGN(msg); return (false); }
@@ -64,14 +71,22 @@ typedef struct	s_file
 	strtab	tab;
 	int		lines;
 }				t_file;
+typedef bool (*fptr_flags)(t_file**);
 
 int				obf_flags_parsing(string flag);
 
 t_file			*obf_file_reader(int *fd, cstring file_name);
 t_file			*obf_file_cut_whitespaces(t_file *file);
 t_file			*obf_file_concat(t_file *file);
-bool			obf_file_save(t_file *file, string file_name);
+bool			obf_file_ccrot(t_file *file);
 
+bool			obf_flag_doall(t_file **file);
+bool			obf_flag_wss_concat(t_file **file);
+bool			obf_flag_wss_ccrot(t_file **file);
+bool			obf_flag_wss(t_file **file);
+
+
+bool			obf_file_save(t_file *file, string file_name);
 void			obf_file_free(t_file *file);
 
 #endif
