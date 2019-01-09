@@ -6,14 +6,18 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/30 00:36:52 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/01 19:41:34 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/09 14:01:13 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = obfuscation
+NAME = obf
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
+	LMAKE = make -C libft
+	DEL = rm -rf
+endif
+ifeq ($(UNAME_S),Darwin)
 	LMAKE = make -C libft
 	DEL = rm -rf
 else
@@ -24,8 +28,8 @@ endif
 CC = gcc -march=native
 CFLAGS = -g -Wall -Wextra -Werror
 
-SRC = srcs/obfuscation.c srcs/obf_file_reader.c srcs/obf_file_cut_whitespaces.c \
-srcs/obf_file_obfuscate.c srcs/obf_file_free.c
+SRC = srcs/main.c srcs/obf_file_reader.c srcs/obf_file_cut_whitespaces.c \
+srcs/obf_file_concat.c srcs/obf_file_free.c srcs/obf_file_save.c srcs/obf_flags_parsing.c
 OBJ = $(SRC:.c=.o)
 
 
@@ -48,7 +52,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "> $(GREEN)Compiled.$(WHITE)"
 
-obf:
+obf_del:
 	@$(DEL) $(OBJ)
 
 clean:
