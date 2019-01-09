@@ -51,7 +51,7 @@ int			main(int argc, char *argv[])
 			while (++j < FLAGS_QTY)
 				if (**argv == flags[j] && (valid_flag = true))
 					_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flags_funcs[j](&file));
-			(!valid_flag) ? printf("%c invalid option.\n", **argv) : (valid_flag = !valid_flag);
+			(!valid_flag) ? (bool)printf("%c invalid option.\n", **argv) : (valid_flag = !valid_flag);
 			++(*argv);
 		}
 		_NOTIS_MSG(_ERRNO_FILE_OSAVING_, obf_file_save(file, argv[i + 1]));
