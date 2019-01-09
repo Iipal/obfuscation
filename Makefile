@@ -13,16 +13,16 @@
 NAME = obf
 
 UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	LMAKE = make -C libft
-	DEL = rm -rf
-endif
 ifeq ($(UNAME_S),Darwin)
 	LMAKE = make -C libft
 	DEL = rm -rf
 else
 	LMAKE = mingw32-make -C libft
 	DEL = del
+endif
+ifeq ($(UNAME_S),Linux)
+	LMAKE = make -C libft
+	DEL = rm -rf
 endif
 
 CC = gcc -march=native
