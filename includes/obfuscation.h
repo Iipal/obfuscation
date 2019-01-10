@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 00:42:32 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 10:31:36 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@
 
 # define FLAGS_QTY			4
 
-# define FLAGS_SPACES		'w'
-# define FLAGS_RENAME		'r'
-# define FLAGS_CONCAT		'o'
-# define FLAGS_FAKING		'f'
+# define FLAGS_WHITESS		'w'
+# define FLAGS_CAESARC		'r'
+# define FLAGS_OBFUSCT		'o'
+# define FLAGS_FAKEING		'f'
 
 # define OBF_LINE_LENGTH	510
 # define OBF_FAKE_ALIAS_LEN	(OBF_LINE_LENGTH - 16)
@@ -74,13 +74,13 @@ typedef bool (*fptr_flags)(t_file**);
 
 t_file			*obf_file_reader(int *fd, cstring file_name);
 t_file			*obf_file_cut_whitespaces(t_file *file);
-t_file			*obf_file_concat(t_file *file);
+t_file			*obf_file_obfusct(t_file *file);
 bool			obf_file_ccrot(t_file *file);
 void			obf_file_fake(t_file *file);
 
 bool			obf_flag_wss(t_file **file);
 bool			obf_flag_ccrot(t_file **file);
-bool			obf_flag_concat(t_file **file);
+bool			obf_flag_obfusct(t_file **file);
 bool			obf_flag_fake(t_file **file);
 
 bool			obf_file_save(t_file *file, string src_file_name);

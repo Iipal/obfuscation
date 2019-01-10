@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:42:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 00:47:27 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 10:27:35 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define _ERRNO_FILE_OBFUSCT_	"Obfuscate processing error."
 # define _ERRNO_FILE_OSAVING_	"File saving error."
 # define _ERRNO_FILE_ENCRYPT_	"Encryprint error."
-# define _ERRNO_FLAG_FAKING_	"-f option cant be used before -w and -o or without -w and -o."
 
 # define _ERR_INF_MEM_ALLOC_	"Memory allocating error \\ "
 # define _ERR_INF_FILE_EMPTY_	"Empty file \\ "
@@ -34,5 +33,8 @@
 # define _MSG_START_VARSCCR_	"Encrypting: "
 # define _MSG_START_OBFUSCATE_	"Obfuscating: "
 # define _MSG_OK_				"OK."
+
+# define _ERRNO_FLAG_OBFUSCT_	"-o option cant be used before -w or without -w. Exit."
+# define _ERRNO_FLAG_FAKEING_	"-f option cant be used before -w and -o or without -w and -o. Exit."
 
 #endif
