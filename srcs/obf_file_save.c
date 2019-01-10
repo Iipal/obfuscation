@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 10:55:17 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 14:40:27 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 15:20:48 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static void	obf_generate_fake_command(string *line, int fd)
 {
-	static char	curr_letter = 'a';
+	static char	curr_letter;
 	size_t		line_len;
 
+	if (!curr_letter)
+		curr_letter = 'a';
 	if ((line_len = strlen(*line)) < OBF_FAKE_ALIAS_MAXLEN)
 	{
 		write(fd, "ALIAS \"", _RSIZEOF(7));
@@ -29,9 +31,9 @@ static void	obf_generate_fake_command(string *line, int fd)
 			write(fd, &curr_letter, _RSIZEOF(1));
 		write(fd, "\";", _RSIZEOF(2));
 		++curr_letter;
-		if (curr_letter > 'z')
+		if (curr_letter == 'z' + 1)
 			curr_letter = 'A';
-		else if (curr_letter > 'Z')
+		else if (curr_letter == 'Z' + 1)
 			curr_letter = 'a';
 	}
 }
