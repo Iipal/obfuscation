@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:42:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 10:27:35 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 11:05:55 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 # define _MSG_START_FPARSE_		"Check flags: "
 # define _MSG_START_READ_		"Source file reading: "
-# define _MSG_START_CUTWSS_		"Cuting whitespace: "
+# define _MSG_START_CUTWSS_		"Cuting whitespaces: "
 # define _MSG_START_VARSCCR_	"Encrypting: "
 # define _MSG_START_OBFUSCATE_	"Obfuscating: "
 # define _MSG_OK_				"OK."
