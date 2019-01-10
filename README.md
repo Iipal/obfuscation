@@ -10,10 +10,56 @@ Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 
 ## Usage:
 ```bash
-./obfuscation source.cfg dest.cfg
+./obf [flags] [files]
 ```
+### Flags:
+- `-w`: Delete [whitespaces](https://en.wikipedia.org/wiki/Whitespace_character) and [commentary](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L45) from files.
+- `-o`: Obfuscate all lines in file(concatenate lines to one if result line length less than [this value](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L43)).
+- `-r`: Rename all [variables](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L48-L53) in files using Caesar Cipher with this [value](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L46).
+- `-f`: Create fake commands in obfuscated files. If obfuscated line in files less than [max length](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L43) programm will try to create fake commands.
 
-#### Notes:
-- Second argument file should not exist, it's will created by program.
-- Deleting comments if only its looks like [this](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28) & exist in start of line without space at start. If [COMMENTARY](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28) isn't in start of line programm will delete all what exist after [COMMENTARY](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L28).
-- Concate in lines which length less than [this](https://github.com/Iipal/obfuscation/blob/d35d9ec319f06364fdfe496bc8664cde4620d20d/includes/obfuscation.h#L26).
+##### Note: Minimum arguments for program is 2. Flags in first argument and minimum 1 file for correct work.
+
+#### Examples:
+```bash
+$ ./obf -wrof file1.cfg file2.cfg
+        file1.cfg:
+Source file reading: OK.
+Cuting whitespaces: OK.
+Encrypting: OK.
+Obfuscating: OK.
+Generate fake commands: OK.
+Saving to file 'obf_file1.cfg': OK.
+        file2.cfg:
+Source file reading: OK.
+Cuting whitespaces: OK.
+Encrypting: OK.
+Obfuscating: OK.
+Generate fake commands: OK.
+Saving to file 'obf_file2.cfg': OK.
+```
+Program will create 2 obfuscated files(`obf_file1.cfg` & `obf_file2.cfg`) where will be deleted whitespaces from all files, renamed all variables, obfuscated lines and created fake commands.
+```bash
+$ ./obf -wr file1.cfg file2.cfg file3.cfg file4.cfg
+        file1.cfg:
+Source file reading: OK.
+Cuting whitespaces: OK.
+Encrypting: OK.
+Saving to file 'obf_file1.cfg': OK.
+        file2.cfg:
+Source file reading: OK.
+Cuting whitespaces: OK.
+Encrypting: OK.
+Saving to file 'obf_file2.cfg': OK.
+        file3.cfg:
+Source file reading: OK.
+Cuting whitespaces: OK.
+Encrypting: OK.
+Saving to file 'obf_file3.cfg': OK.
+        file4.cfg:
+Source file reading: OK.
+Cuting whitespaces: OK.
+Encrypting: OK.
+Saving to file 'obf_file4.cfg': OK.
+```
+Program will create 4 obfuscated files(the same files like in example above), but if `obf_file1.cfg` already exist its will re-writed with new data where will be deleted whitespaces and renaming variables in all files.
