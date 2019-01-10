@@ -8,8 +8,8 @@
             "name": "C debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/obfuscation",
-            "args": ["test.txt", "dst"],
+            "program": "${workspaceFolder}/obf",
+            "args": ["-fow", "test1.cfg"],
             "cwd": "${workspaceFolder}",
             "MIMode": "lldb",
             "setupCommands": [

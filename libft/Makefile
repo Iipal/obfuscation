@@ -3,20 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tmaluh <tmaluh@student.42.fr>              +#+  +:+       +#+         #
+#    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/25 11:27:37 by tmaluh            #+#    #+#              #
-#    Updated: 2018/12/14 11:39:27 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/09 13:59:41 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
+ifeq ($(UNAME_S),Darwin)
 	DEL = rm -rf
 else
 	DEL = del
+endif
+ifeq ($(UNAME_S),Linux)
+	DEL = rm -rf
 endif
 
 CC = gcc -march=native
@@ -42,12 +45,13 @@ LIBSRC_LST = srcs/lst/ft_lstadd.c srcs/lst/ft_lstdel.c srcs/lst/ft_lstdelone.c \
 		srcs/lst/ft_lstiter.c srcs/lst/ft_lstmap.c srcs/lst/ft_lstnew.c
 LIBSRC_STR = srcs/str/ft_atoi.c srcs/str/ft_atoi_base.c srcs/str/ft_count_if.c srcs/str/ft_itoa.c \
 		srcs/str/ft_strcat.c srcs/str/ft_strchr.c srcs/str/ft_strclr.c srcs/str/ft_strcmp.c \
-		srcs/str/ft_strcpy.c srcs/str/ft_strdel.c srcs/str/ft_strdup.c srcs/str/ft_strequ.c \
-		srcs/str/ft_striter.c srcs/str/ft_striteri.c srcs/str/ft_strjoin.c srcs/str/ft_strlcat.c \
-		srcs/str/ft_strlcpy.c srcs/str/ft_strlen.c srcs/str/ft_strmap.c srcs/str/ft_strmapi.c \
-		srcs/str/ft_strncat.c srcs/str/ft_strncmp.c srcs/str/ft_strncpy.c srcs/str/ft_strndup.c \
-		srcs/str/ft_strnequ.c srcs/str/ft_strnew.c srcs/str/ft_strnstr.c srcs/str/ft_strrchr.c \
-		srcs/str/ft_strsplit.c srcs/str/ft_strstr.c srcs/str/ft_strsub.c srcs/str/ft_strtrim.c
+		srcs/str/ft_strncasecmp.c srcs/str/ft_strcpy.c srcs/str/ft_strdel.c srcs/str/ft_strdup.c \
+		srcs/str/ft_strequ.c srcs/str/ft_striter.c srcs/str/ft_striteri.c srcs/str/ft_strjoin.c \
+		srcs/str/ft_strlcat.c srcs/str/ft_strlcpy.c srcs/str/ft_strlen.c srcs/str/ft_strmap.c \
+		srcs/str/ft_strmapi.c srcs/str/ft_strncat.c srcs/str/ft_strncmp.c srcs/str/ft_strncpy.c \
+		srcs/str/ft_strndup.c srcs/str/ft_strnequ.c srcs/str/ft_strnew.c srcs/str/ft_strnstr.c \
+		srcs/str/ft_strcasestr.c srcs/str/ft_strrchr.c srcs/str/ft_strsplit.c srcs/str/ft_strstr.c \
+		srcs/str/ft_strsub.c srcs/str/ft_strtrim.c
 LIBSRC_LFT = srcs/lft/ft_gnl.c
 
 LIBOBJ_STR = $(LIBSRC_STR:%.c=%.o)
