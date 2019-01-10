@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:49:16 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 13:56:00 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 14:19:37 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ bool	obf_flags_parser(string flags, t_file **file)
 			if (*flags == flags_all[j] && (valid_flag = true))
 			{
 				_NOTIS_F(obf_flag_validate(flags, src_flags));
+				(*flags == FLAGS_FAKEING) ? ((*file)->generate_fake = true) : ((*file)->generate_fake = false);
 				_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flags_funcs[j](file));
 			}
 		if (!valid_flag)
