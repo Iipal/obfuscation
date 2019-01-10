@@ -21,6 +21,8 @@ Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 ##### Note: Minimum arguments for program is 2. Flags in first argument and minimum 1 file for correct work.
 
 #### Examples:
+
+##### Example #1:
 ```bash
 $ ./obf -wrof file1.cfg file2.cfg
         file1.cfg:
@@ -39,6 +41,7 @@ Generate fake commands: OK.
 Saving to file 'obf_file2.cfg': OK.
 ```
 Program will create 2 obfuscated files(`obf_file1.cfg` & `obf_file2.cfg`) where will be deleted whitespaces from all files, renamed all variables, obfuscated lines and created fake commands.
+##### Example #2:
 ```bash
 $ ./obf -wr file1.cfg file2.cfg file3.cfg file4.cfg
         file1.cfg:
@@ -62,4 +65,4 @@ Cuting whitespaces: OK.
 Encrypting: OK.
 Saving to file 'obf_file4.cfg': OK.
 ```
-Program will create 4 obfuscated files(the same files like in example above), but if `obf_file1.cfg` already exist its will re-writed with new data where will be deleted whitespaces and renaming variables in all files.
+Program will create 4 obfuscated files(the same files like in example above), but if `obf_file1.cfg` (or the same program outputed files from program) already exist its will re-writed with new data where will be deleted whitespaces and renaming variables in all files.
