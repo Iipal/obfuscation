@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 15:29:16 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 15:33:10 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ typedef struct	s_file
 {
 	strtab	tab;
 	int		lines;
-	bool	generate_fake:1;
 }				t_file;
 typedef bool (*fptr_flags)(t_file**);
 
