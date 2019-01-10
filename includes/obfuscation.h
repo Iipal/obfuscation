@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 15:04:12 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 15:29:16 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@
 
 # define OBF_ARGS_FLAG		0
 
-# define FLAGS_QTY			4
+# define FLAGS_QTY			3
 # define FLAGS_WHITESS		'w'
 # define FLAGS_CAESARC		'r'
 # define FLAGS_OBFUSCT		'o'
-# define FLAGS_FAKEING		'f'
 
 # define COMMENTARY			"//"
 
@@ -83,14 +82,12 @@ t_file			*obf_file_reader(int *fd, cstring file_name);
 t_file			*obf_file_cut_whitespaces(t_file *file);
 t_file			*obf_file_obfusct(t_file *file);
 bool			obf_file_ccrot(t_file *file);
-void			obf_file_fake(t_file *file);
 
 bool			obf_flags_parser(string flags, t_file **file);
 
 bool			obf_flag_wss(t_file **file);
 bool			obf_flag_ccrot(t_file **file);
 bool			obf_flag_obfusct(t_file **file);
-bool			obf_flag_fake(t_file **file);
 
 bool			obf_file_save(t_file *file, string src_file_name);
 void			obf_file_free(t_file *file);

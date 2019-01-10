@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:49:16 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 14:19:37 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 15:29:40 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static bool	obf_flag_validate(string flags, string src_flags)
 {
-	if (*flags == FLAGS_FAKEING)
-		_NOTIS_MSG(_ERRNO_FLAGDEP_FAKEING_, ft_strnstr(src_flags, "w", (flags - src_flags)) && ft_strnstr(src_flags, "o", (flags - src_flags)));
 	if (*flags == FLAGS_OBFUSCT)
 		_NOTIS_MSG(_ERRNO_FLAGDEP_OBFUSCT_, ft_strnstr(src_flags, "w", (flags - src_flags)));
 	return (true);
@@ -23,8 +21,8 @@ static bool	obf_flag_validate(string flags, string src_flags)
 
 bool	obf_flags_parser(string flags, t_file **file)
 {
-	const fptr_flags	flags_funcs[] = {&obf_flag_obfusct, &obf_flag_ccrot, &obf_flag_wss, &obf_flag_fake};
-	char				flags_all[] = {FLAGS_OBFUSCT, FLAGS_CAESARC, FLAGS_WHITESS, FLAGS_FAKEING};
+	const fptr_flags	flags_funcs[] = {&obf_flag_obfusct, &obf_flag_ccrot, &obf_flag_wss};
+	char				flags_all[] = {FLAGS_OBFUSCT, FLAGS_CAESARC, FLAGS_WHITESS};
 	string				src_flags;
 	bool				valid_flag;
 	int					j = NEG;
@@ -39,7 +37,6 @@ bool	obf_flags_parser(string flags, t_file **file)
 			if (*flags == flags_all[j] && (valid_flag = true))
 			{
 				_NOTIS_F(obf_flag_validate(flags, src_flags));
-				(*flags == FLAGS_FAKEING) ? ((*file)->generate_fake = true) : ((*file)->generate_fake = false);
 				_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flags_funcs[j](file));
 			}
 		if (!valid_flag)

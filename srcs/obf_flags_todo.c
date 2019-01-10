@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:37 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 10:38:00 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/10 15:31:14 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,5 @@ bool	obf_flag_ccrot(t_file **file)
 bool	obf_flag_obfusct(t_file **file)
 {
 	_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, *file = obf_file_obfusct(*file));
-	return (true);
-}
-
-bool	obf_flag_fake(t_file **file)
-{
-	obf_file_fake(*file);
 	return (true);
 }

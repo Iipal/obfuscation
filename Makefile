@@ -6,7 +6,7 @@
 #    By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/30 00:36:52 by tmaluh            #+#    #+#              #
-#    Updated: 2019/01/10 12:50:21 by tmaluh           ###   ########.fr        #
+#    Updated: 2019/01/10 15:31:08 by tmaluh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ CFLAGS = -g -Wall -Wextra -Werror
 
 SRC = srcs/main.c srcs/obf_file_reader.c srcs/obf_file_cut_wss.c \
 srcs/obf_file_obfsct.c srcs/obf_file_free.c srcs/obf_file_save.c \
-srcs/obf_flags_todo.c srcs/obf_file_ccrot.c srcs/obf_file_fake.c \
-srcs/obf_flags_parser.c
+srcs/obf_flags_todo.c srcs/obf_file_ccrot.c srcs/obf_flags_parser.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT = libft/libft.a
