@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 12:50:08 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/11 17:41:27 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	obf_print_usage(void)
 	_MSG("\tFirst argument should be flags.(more info in README.md)\n");
 	_MSG("\tAll arguments after first argument - files for obfuscating\n");
 	_MSG("\tAfter correct work of program you can find file with name 'obf_*your_file_name*'\n");
-	_MSG("\tExample: ./obfuscation -oo *your_file_name1*.cfg *your_file_name2*.cfg ...\n");	
+	_MSG("\tExample: ./obf -wrof *your_file_name1*.cfg *your_file_name2*.cfg ...\n");
 }
 
 int			main(int argc, char *argv[])

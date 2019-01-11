@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:49:16 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 15:29:40 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/11 17:40:20 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@ static bool	obf_flag_validate(string flags, string src_flags)
 bool	obf_flags_parser(string flags, t_file **file)
 {
 	const fptr_flags	flags_funcs[] = {&obf_flag_obfusct, &obf_flag_ccrot, &obf_flag_wss};
-	char				flags_all[] = {FLAGS_OBFUSCT, FLAGS_CAESARC, FLAGS_WHITESS};
+	const char			flags_all[] = {FLAGS_OBFUSCT, FLAGS_CAESARC, FLAGS_WHITESS};
 	string				src_flags;
 	bool				valid_flag;
 	int					j = NEG;
 	
 	src_flags = flags;
-	
-	while (*flags == '-')
+	if (*flags == '-')
 		++flags;
 	while (*flags && (j = NEG))
 	{
