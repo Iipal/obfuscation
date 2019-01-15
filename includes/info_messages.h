@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:42:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 15:30:57 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:14:43 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define _ERRNO_FILE_ENCRYPT_	"Encryprint error."
 
 # define _ERR_INF_MEM_ALLOC_	"Memory allocating error \\ "
+# define _ERR_INF_FILE_SAVING_	"Failed opening file \\"
 # define _ERR_INF_FILE_REOPEN_	"Failed file re-opening \\ "
 # define _ERR_INF_FILE_O_COMM_	"Only comments in file \\ "
 # define _ERR_INF_FILE_EMPTY_	"Empty file \\ "

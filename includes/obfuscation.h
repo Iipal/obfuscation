@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 15:33:10 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:15:35 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@
 # define _FILE_SAVE_PREF_	"obf_"
 # define _FILE_SAVE_PREF_GENERATE(dest, src, len_sizeof) { \
 	_NOTIS_FMSG(_ERR_INF_MEM_ALLOC_, dest = (string)malloc(len_sizeof)); \
-	dest = strcat(dest, _FILE_SAVE_PREF_); dest = strcat(dest, src); }
+	ft_bzero(dest, len_sizeof); dest = strcat(dest, _FILE_SAVE_PREF_); dest = strcat(dest, src); }
 
 typedef enum	e_bool { false, true }	bool;
 typedef struct	s_file
