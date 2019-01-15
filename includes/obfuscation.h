@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 10:15:35 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:35:17 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@
 
 # define OBF_ARGS_FLAG		0
 
-# define FLAGS_QTY			3
+# define FLAGS_QTY			4
 # define FLAGS_WHITESS		'w'
 # define FLAGS_CAESARC		'r'
 # define FLAGS_OBFUSCT		'o'
+# define FLAGS_FAKEING		'f'
 
 # define COMMENTARY			"//"
 
@@ -74,6 +75,7 @@ typedef struct	s_file
 {
 	strtab	tab;
 	int		lines;
+	bool	generate_fake:1;
 }				t_file;
 typedef bool (*fptr_flags)(t_file**);
 
@@ -87,6 +89,7 @@ bool			obf_flags_parser(string flags, t_file **file);
 bool			obf_flag_wss(t_file **file);
 bool			obf_flag_ccrot(t_file **file);
 bool			obf_flag_obfusct(t_file **file);
+bool			obf_flag_fake(t_file **file);
 
 bool			obf_file_save(t_file *file, string src_file_name);
 void			obf_file_free(t_file *file);

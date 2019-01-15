@@ -6,11 +6,37 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 10:55:17 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 10:16:16 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:33:49 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/obfuscation.h"
+
+static void	obf_generate_fake_command(string *line, int fd)
+{
+	static char	curr_letter;
+	size_t		line_len;
+
+	if (!curr_letter)
+		curr_letter = 'a';
+	if ((line_len = strlen(*line)) < OBF_FAKE_ALIAS_MAXLEN)
+	{
+		write(fd, "ALIAS \"", _RSIZEOF(7));
+		line_len += 8;
+		while (line_len++ < OBF_LINE_LENGTH - 7)
+			write(fd, &curr_letter, _RSIZEOF(1));
+		write(fd, "\" \"", _RSIZEOF(3));
+		line_len += 2;
+		while(line_len++ < OBF_LINE_LENGTH - 2)
+			write(fd, &curr_letter, _RSIZEOF(1));
+		write(fd, "\";", _RSIZEOF(2));
+		++curr_letter;
+		if (curr_letter == 'z' + 1)
+			curr_letter = 'A';
+		else if (curr_letter == 'Z' + 1)
+			curr_letter = 'a';
+	}
+}
 
 bool		obf_file_save(t_file *file, string src_file_name)
 {
@@ -24,6 +50,8 @@ bool		obf_file_save(t_file *file, string src_file_name)
 	while (++i < file->lines)
 	{
 		write(fd, file->tab[i], _RSIZEOF(strlen(file->tab[i])));
+		if (file->generate_fake)
+			obf_generate_fake_command(&(file->tab[i]), fd);
 		write(fd, "\n", _RSIZEOF(1));
 	}
 	close(fd);

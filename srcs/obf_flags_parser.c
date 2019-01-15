@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:49:16 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/11 17:40:20 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:35:33 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static bool	obf_flag_validate(string flags, string src_flags)
 
 bool	obf_flags_parser(string flags, t_file **file)
 {
-	const fptr_flags	flags_funcs[] = {&obf_flag_obfusct, &obf_flag_ccrot, &obf_flag_wss};
-	const char			flags_all[] = {FLAGS_OBFUSCT, FLAGS_CAESARC, FLAGS_WHITESS};
+	const fptr_flags	flags_funcs[] = {&obf_flag_obfusct, &obf_flag_ccrot, &obf_flag_wss, &obf_flag_fake};
+	const char			flags_all[] = {FLAGS_OBFUSCT, FLAGS_CAESARC, FLAGS_WHITESS, FLAGS_FAKEING};
 	string				src_flags;
 	bool				valid_flag;
 	int					j = NEG;
@@ -36,6 +36,7 @@ bool	obf_flags_parser(string flags, t_file **file)
 			if (*flags == flags_all[j] && (valid_flag = true))
 			{
 				_NOTIS_F(obf_flag_validate(flags, src_flags));
+				(*flags == FLAGS_FAKEING) ? ((*file)->generate_fake = true) : ((*file)->generate_fake = false);
 				_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, flags_funcs[j](file));
 			}
 		if (!valid_flag)

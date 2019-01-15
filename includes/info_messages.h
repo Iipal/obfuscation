@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 12:42:01 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 10:14:43 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:31:58 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define _ERR_INF_FILE_EMPTY_	"Empty file \\ "
 # define _ERR_INF_FLAG_ISNTEX_	" isn't exist. "
 
+# define _MSG_START_FAKEING_	"Generate fake commands: "
 # define _MSG_START_READ_		"Source file reading: "
 # define _MSG_START_CUTWSS_		"Cuting whitespaces: "
 # define _MSG_START_OBFUSCATE_	"Obfuscating: "
@@ -35,6 +36,7 @@
 # define _MSG_START_VARSCCR_	"Encrypting: "
 # define _MSG_OK_				"OK."
 
+# define _ERRNO_FLAGDEP_FAKEING_	"-f option cant be used before -w and -o or without -w and -o. Exit."
 # define _ERRNO_FLAGDEP_OBFUSCT_	"-o option cant be used before -w or without -w. Exit."
 
 #endif

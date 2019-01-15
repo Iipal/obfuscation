@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:37 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 15:31:14 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:36:10 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,9 @@ bool	obf_flag_obfusct(t_file **file)
 	_NOTIS_MSG(_ERRNO_FILE_OBFUSCT_, *file = obf_file_obfusct(*file));
 	return (true);
 }
+
+/*
+**	Junk func for correct parser work.
+*/
+
+bool obf_flag_fake(t_file **file) {if (*file) {_MSG(_MSG_START_FAKEING_); _MSGN(_MSG_OK_);} return (true); }
