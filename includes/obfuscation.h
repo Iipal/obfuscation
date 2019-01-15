@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:28:58 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 10:35:17 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 11:10:13 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <ctype.h>
 # include <sys/stat.h>
+# include <time.h>
 
 # define NEG				-1
 # define ZERO				0

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 12:49:16 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 10:35:33 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 11:18:40 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 static bool	obf_flag_validate(string flags, string src_flags)
 {
-	if (*flags == FLAGS_OBFUSCT)
+	if (*flags == FLAGS_FAKEING)
+		_NOTIS_MSG(_ERRNO_FLAGDEP_FAKEING_, ft_strnstr(src_flags, "w", (flags - src_flags))
+										&& ft_strnstr(src_flags, "o", (flags - src_flags)));
+		if (*flags == FLAGS_OBFUSCT)
 		_NOTIS_MSG(_ERRNO_FLAGDEP_OBFUSCT_, ft_strnstr(src_flags, "w", (flags - src_flags)));
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 14:21:37 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 10:36:10 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 10:46:18 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ bool	obf_flag_obfusct(t_file **file)
 }
 
 /*
-**	Junk func for correct parser work.
+**	Junk function for correct parser work.
+**	Fake commands will generate in obf_file_save.c if `generate_fake` in file is true
 */
 
 bool obf_flag_fake(t_file **file) {if (*file) {_MSG(_MSG_START_FAKEING_); _MSGN(_MSG_OK_);} return (true); }

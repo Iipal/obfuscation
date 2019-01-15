@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/30 00:29:31 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/11 17:41:27 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 11:10:26 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int			main(int argc, char *argv[])
 	int					fd;
 
 	_ARGS_ISVALID(argc, argv, obf_print_usage);
+	srand(time(NULL));
 	while (++i < argc - 1)
 	{
 		write(1, "\t", _RSIZEOF(1)); _MSG(argv[i + 1]); write(1, ":\n", _RSIZEOF(2));
