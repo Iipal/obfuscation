@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 10:55:17 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/15 11:21:19 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/01/15 11:41:43 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ static void	obf_generate_fake_command(string *line, int fd)
 		while (line_len++ < OBF_LINE_LENGTH - 7)
 		{
 			curr_letter += rand() % CC_ROT;
-			if (!islower(curr_letter) && !isupper(curr_letter))
+			if (!islower(curr_letter) && curr_letter > 'z')
+				curr_letter = 'A';
+			else if (!islower(curr_letter) && !isupper(curr_letter))
 				curr_letter = 'a';
 			write(fd, &(curr_letter), _RSIZEOF(1));
 		}
@@ -35,7 +37,9 @@ static void	obf_generate_fake_command(string *line, int fd)
 		while(line_len++ < OBF_LINE_LENGTH - 2)
 		{
 			curr_letter += rand() % CC_ROT;
-			if (!islower(curr_letter) && !isupper(curr_letter))
+			if (!islower(curr_letter) && curr_letter > 'z')
+				curr_letter = 'A';
+			else if (!islower(curr_letter) && !isupper(curr_letter))
 				curr_letter = 'a';
 			write(fd, &curr_letter, _RSIZEOF(1));
 		}
