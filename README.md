@@ -16,6 +16,7 @@ Use [make](https://en.wikipedia.org/wiki/Makefile) for compiling all files.
 - `-w`: Delete [whitespaces](https://en.wikipedia.org/wiki/Whitespace_character) and [commentary](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L45) from files.
 - `-o`: Obfuscate all lines in file(concatenate lines to one if result line length less than [this value](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L43)).
 - `-r`: Rename all [variables](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L48-L53) in files using Caesar Cipher with this [value](https://github.com/Iipal/obfuscation/blob/085e45e39ea9dcbf4c4b4fd6cb3bbdc54def867e/includes/obfuscation.h#L46).
+- '-f': Generate fake commands in End of Lines if concated line lenght less than 510 sumbols.
 
 ##### Note: Minimum arguments for program is 2. Flags in first argument and minimum 1 file for correct work.
 
