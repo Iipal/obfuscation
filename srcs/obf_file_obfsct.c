@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:53:36 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/02/26 22:20:32 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/02/27 19:14:19 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ static int	obf_obfuscted_lines(t_file *file)
 	_NOTIS_F(temp = (string)malloc(_RSIZEOF(OBF_LINE_LENGTH + 1)));
 	ft_bzero(temp, _RSIZEOF(OBF_LINE_LENGTH + 1));
 	while (++i < file->lines)
-	{
-		if (strlen(file->tab[i]) >= 510)
-		{
-			_MSG("error: Line "); ft_putnbr(i + 1); _MSGN(" has 510 or more symbols:");
-			write(1, file->tab[i], 42);
-			_MSGN("...");
-			exit(EXIT_FAILURE);
-		}
 		if (strlen(temp) + strlen(file->tab[i]) < OBF_LINE_LENGTH)
 			obf_lines_obfusct(&temp, file->tab[i]);
 		else
@@ -48,7 +40,6 @@ static int	obf_obfuscted_lines(t_file *file)
 			ft_bzero(temp, _RSIZEOF(OBF_LINE_LENGTH + 1));
 			obf_lines_obfusct(&temp, file->tab[i]);
 		}
-	}
 	if (*temp)
 		++concated_lines;
 	ft_strdel(&temp);

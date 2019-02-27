@@ -6,7 +6,7 @@
 /*   By: tmaluh <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/01 15:46:38 by tmaluh            #+#    #+#             */
-/*   Updated: 2019/01/10 00:30:00 by tmaluh           ###   ########.fr       */
+/*   Updated: 2019/02/27 19:20:38 by tmaluh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,17 @@ t_file	*obf_file_reader(int *fd, cstring file_name)
 	_NOTIS_NMSG(_ERR_INF_MEM_ALLOC_, source_file = (t_file*)malloc(sizeof(t_file)));
 	source_file->lines = ZERO;
 	while (ft_gnl(*fd, &temp) > ZERO && ++(source_file->lines))
-		free(temp);
+	{
+		if (strlen(temp) >= 510)
+		{
+			_MSG("error: Line "); ft_putnbr(source_file->lines); _MSGN(" has 510 or more symbols:");
+			write(1, temp, 42);
+			_MSGN("...");
+			ft_strdel(&temp);
+			exit(EXIT_FAILURE);
+		}
+		ft_strdel(&temp);
+	}
 	close(*fd);
 	_NOTIS_NMSG(_ERR_INF_FILE_EMPTY_, source_file->lines);
 	_NOTIS_NMSG(_ERR_INF_MEM_ALLOC_, source_file->tab = (strtab)malloc(sizeof(string) * source_file->lines));
